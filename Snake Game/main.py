@@ -1,40 +1,10 @@
-def main():
-    menu()
-
-
-# Defining the menu
-def menu():
-    print("***Welcome to my Snake Game***")
-    print("Please select what you would like to do")
-    print()
-
-    choice = input("""
-                       P: Play
-                       H: High Score
-                       E: Exit
-
-                       Please enter your choice, to select what you would like to do: """)
-
-    if choice == "p" or choice == "P":
-        try:
-            game()
-        except:
-            menu()
-    elif choice == "e" or choice == "E":
-        exit()
-    elif choice == "h" or choice == "H":
-        print("Coming soon")
-        menu()
-    else:
-        print("You must only select either P, H or E")
-        print("Please try again")
+import turtle
+import time
+import random
 
 
 # Defining the game
 def game():
-    import turtle
-    import time
-    import random
 
     delay = 0.1
 
@@ -76,7 +46,7 @@ def game():
     pen.penup()
     pen.hideturtle()
     pen.goto(0, 250)
-    pen.write("Score: 0     High Score: 0", align="center", font=("Comic Sans MS", 24, "normal"))
+    pen.write("Score: 0    High Score: 0", align="center", font=("Arial", 24, "normal"))
 
     # Functions
     def go_up():
@@ -141,11 +111,12 @@ def game():
 
             # Update the score display
             pen.clear()
-            pen.write("Score: {}     High Score: {}".format(score, high_score), align="center",
-                      font=("Comic Sans MS", 24, "normal"))
+            pen.write("Score: {}    High Score: {}".format(score, high_score), align="center",
+                      font=("Arial", 24, "normal"))
 
         # Check for collision with the food
         if head.distance(food) < 20:
+
             # Move the food to a random spot
             x = random.randint(-275, 275)
             y = random.randint(-275, 250)
@@ -166,8 +137,8 @@ def game():
                 high_score = score
 
             pen.clear()
-            pen.write("Score: {}     High Score: {}".format(score, high_score), align="center",
-                      font=("Comic Sans MS", 24, "normal"))
+            pen.write("Score: {}    High Score: {}".format(score, high_score), align="center",
+                      font=("Arial", 24, "normal"))
 
         # Move the end segments first in reverse order
         for index in range(len(segments) - 1, 0, -1):
@@ -185,6 +156,7 @@ def game():
 
         # Check for head collision with the body segments
         for segment in segments:
+
             if segment.distance(head) < 20:
                 time.sleep(1)
                 head.goto(0, 0)
@@ -202,12 +174,11 @@ def game():
 
                 # Update the score display
                 pen.clear()
-                pen.write("Score: {}     High Score: {}".format(score, high_score), align="center",
-                          font=("Comic Sans MS", 24, "normal"))
+                pen.write("Score: {}    High Score: {}".format(score, high_score), align="center",
+                          font=("Arial", 24, "normal"))
 
         time.sleep(delay)
 
-    window.mainloop()
 
-
-main()
+if __name__ == "__main__":
+    game()
