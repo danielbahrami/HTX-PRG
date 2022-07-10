@@ -1,12 +1,10 @@
-import turtle
-import time
 import random
+import time
+import turtle
 
 
 # Defining the game
 def game():
-
-    delay = 0.1
 
     # Score
     score = 0
@@ -177,7 +175,7 @@ def game():
                 pen.write("Score: {}    High Score: {}".format(score, high_score), align="center",
                           font=("Arial", 24, "normal"))
 
-        time.sleep(delay)
+        time.sleep(0.1)
 
 
 if __name__ == "__main__":
